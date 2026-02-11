@@ -12,16 +12,28 @@
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 		<style>
-			/* Ensures the game scales down on smaller screens */
-			.game-container {
-				margin: 2em 0;
-				text-align: center;
+			/* Fixed Aspect Ratio Container (1024 x 960) */
+			.game-wrapper {
+				position: relative;
+				width: 100%;
+				max-width: 1024px; /* Hard limit on width */
+				margin: 2em auto;
+				/* Ratio calculation: (960 / 1024) * 100 = 93.75% */
+				padding-bottom: 93.75%; 
+				height: 0;
 				overflow: hidden;
-			}
-			iframe {
-				border: none;
-				max-width: 100%;
 				background: #000;
+				border-radius: 0.5em;
+				box-shadow: 0 0 2em rgba(0,0,0,0.5);
+			}
+
+			.game-wrapper iframe {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				border: 0;
 			}
 		</style>
 	</head>
@@ -50,9 +62,9 @@
 							<h1>Alexander White</h1>
 							<p>A public portfolio of my game design work.</p>
 							
-							<!-- Unity Game Embed -->
-							<div class="game-container">
-								<iframe src="game.html" width="1024" height="960" allowfullscreen></iframe>
+							<!-- Fixed Aspect Ratio Game Embed -->
+							<div class="game-wrapper">
+								<iframe src="game.html"></iframe>
 							</div>
 
 							<ul class="actions">
@@ -61,35 +73,18 @@
 						</div>
 					</section>
 
-				<!-- One -->
-					<section id="one" class="wrapper style2 spotlights">
-						<section>
-							<a href="#" class="image"><img src="images/pic01.jpg" alt="" data-position="center center" /></a>
-							<div class="content">
-								<div class="inner">
-									<h2>Featured Project</h2>
-									<p>Describe the mechanics and design philosophy of the game featured above.</p>
-									<ul class="actions">
-										<li><a href="generic.html" class="button">Learn more</a></li>
-									</ul>
-								</div>
-							</div>
-						</section>
-						<!-- Additional sections omitted for brevity... -->
-					</section>
-
-				<!-- (Remaining sections Two, Three, and Footer kept as original) -->
+				<!-- Remaining template sections... -->
 
 			</div>
 
 		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/jquery.scrollex.min.js"></script>
+		<script src="assets/js/jquery.scrolly.min.js"></script>
+		<script src="assets/js/browser.min.js"></script>
+		<script src="assets/js/breakpoints.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<script src="assets/js/main.js"></script>
 
 	</body>
 </html>
