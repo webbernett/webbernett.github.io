@@ -12,28 +12,36 @@
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 		<style>
-			/* Fixed Aspect Ratio Container (1024 x 960) */
-			.game-wrapper {
-				position: relative;
-				width: 100%;
-				max-width: 1024px; /* Hard limit on width */
-				margin: 2em auto;
-				/* Ratio calculation: (960 / 1024) * 100 = 93.75% */
-				padding-bottom: 93.75%; 
-				height: 0;
-				overflow: hidden;
+			/* Fixed dimensions for the game embed */
+			.game-frame-container {
+				width: 1024px;
+				height: 960px;
+				margin: 3em auto;
 				background: #000;
-				border-radius: 0.5em;
-				box-shadow: 0 0 2em rgba(0,0,0,0.5);
+				box-shadow: 0 0 50px rgba(0,0,0,0.5);
+				border-radius: 4px;
+				overflow: hidden;
 			}
 
-			.game-wrapper iframe {
-				position: absolute;
-				top: 0;
-				left: 0;
-				width: 100%;
-				height: 100%;
-				border: 0;
+			.game-frame-container iframe {
+				width: 1024px;
+				height: 960px;
+				border: none;
+			}
+
+			/* Laptop Scaling: If the screen is smaller than 1100px, 
+			   scale the entire game down so it doesn't clip. */
+			@media screen and (max-width: 1100px) {
+				.game-frame-container {
+					transform: scale(0.85);
+					transform-origin: top center;
+					margin-bottom: -100px; /* Adjusts spacing left by scaling */
+				}
+			}
+
+			/* Hides the Unity Fullscreen button specifically */
+			#unity-fullscreen-button {
+				display: none !important;
 			}
 		</style>
 	</head>
@@ -61,9 +69,9 @@
 						<div class="inner">
 							<h1>Alexander White</h1>
 							<p>A public portfolio of my game design work.</p>
-							
-							<!-- Fixed Aspect Ratio Game Embed -->
-							<div class="game-wrapper">
+
+							<!-- Unity Game Embed -->
+							<div class="game-frame-container">
 								<iframe src="game.html"></iframe>
 							</div>
 
@@ -73,18 +81,42 @@
 						</div>
 					</section>
 
-				<!-- Remaining template sections... -->
+				<!-- One -->
+					<section id="one" class="wrapper style2 spotlights">
+						<section>
+							<a href="#" class="image"><img src="images/pic01.jpg" alt="" data-position="center center" /></a>
+							<div class="content">
+								<div class="inner">
+									<h2>About This Game</h2>
+									<p>Me and my partner were tasked with recreating the NES classic "The Legend of Zelda" in Unity.</p>
+									<ul class="actions">
+										<li><a href="generic.html" class="button">Learn more</a></li>
+									</ul>
+								</div>
+							</div>
+						</section>
+					</section>
 
+				<!-- Two & Three kept original to save space -->
 			</div>
 
+		<!-- Footer -->
+			<footer id="footer" class="wrapper style1-alt">
+				<div class="inner">
+					<ul class="menu">
+						<li>&copy; Alexander White. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+					</ul>
+				</div>
+			</footer>
+
 		<!-- Scripts -->
-		<script src="assets/js/jquery.min.js"></script>
-		<script src="assets/js/jquery.scrollex.min.js"></script>
-		<script src="assets/js/jquery.scrolly.min.js"></script>
-		<script src="assets/js/browser.min.js"></script>
-		<script src="assets/js/breakpoints.min.js"></script>
-		<script src="assets/js/util.js"></script>
-		<script src="assets/js/main.js"></script>
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
 
 	</body>
 </html>
