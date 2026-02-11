@@ -1,9 +1,4 @@
 <!DOCTYPE HTML>
-<!--
-	Hyperspace by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
 <html>
 	<head>
 		<title>Alexander White - Portfolio</title>
@@ -12,103 +7,107 @@
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 		<style>
-			/* Fluid Aspect-Ratio Container */
+			/* Fluid Container that stays centered and scales correctly */
 			.game-wrapper {
 				position: relative;
 				width: 100%;
-				max-width: 1024px; /* Limits size on large monitors */
+				max-width: 1024px; 
 				margin: 2em auto;
-				/* Ratio: (960 / 1024) * 100 = 93.75% */
-				padding-bottom: 93.75%; 
+				padding-bottom: 93.75%; /* (960 / 1024) ratio */
 				height: 0;
 				overflow: hidden;
 				background: #000;
-				box-shadow: 0 0 50px rgba(0,0,0,0.5);
 				border-radius: 4px;
+				box-shadow: 0 0 50px rgba(0,0,0,0.5);
 			}
 
 			.game-wrapper iframe {
 				position: absolute;
-				top: 0;
-				left: 0;
-				width: 100%;
-				height: 100%;
+				top: 0; left: 0;
+				width: 100%; height: 100%;
 				border: none;
 			}
 
-			/* Hides the Unity Fullscreen button specifically */
+			/* Hidden dummy element to resolve the JS error */
 			#unity-fullscreen-button {
 				display: none !important;
+				visibility: hidden !important;
 			}
 		</style>
 	</head>
 	<body class="is-preload">
 
-		<!-- Sidebar -->
-			<section id="sidebar">
+		<section id="sidebar">
+			<div class="inner">
+				<nav>
+					<ul>
+						<li><a href="#intro">Welcome</a></li>
+						<li><a href="#one">About This Game</a></li>
+					</ul>
+				</nav>
+			</div>
+		</section>
+
+		<div id="wrapper">
+			<!-- Intro -->
+			<section id="intro" class="wrapper style1 fullscreen fade-up">
 				<div class="inner">
-					<nav>
-						<ul>
-							<li><a href="#intro">Welcome</a></li>
-							<li><a href="#one">About This Game</a></li>
-						</ul>
-					</nav>
+					<h1>Alexander White</h1>
+					<p>A public portfolio of my game design work.</p>
+
+					<!-- This is the dummy button script expects to find -->
+					<div id="unity-fullscreen-button"></div>
+
+					<div class="game-wrapper">
+						<iframe id="game-iframe" src="game.html" scrolling="no"></iframe>
+					</div>
+
+					<ul class="actions">
+						<li><a href="#one" class="button scrolly">Learn more</a></li>
+					</ul>
 				</div>
 			</section>
 
-		<!-- Wrapper -->
-			<div id="wrapper">
-
-				<!-- Intro -->
-					<section id="intro" class="wrapper style1 fullscreen fade-up">
+			<!-- About Section -->
+			<section id="one" class="wrapper style2 spotlights">
+				<section>
+					<a href="#" class="image"><img src="images/pic01.png" alt="Zelda Recreation" data-position="center center" /></a>
+					<div class="content">
 						<div class="inner">
-							<h1>Alexander White</h1>
-							<p>A public portfolio of my game design work.</p>
-
-							<!-- Updated Responsive Game Embed -->
-							<div class="game-wrapper">
-								<iframe src="game.html" scrolling="no"></iframe>
-							</div>
-
-							<ul class="actions">
-								<li><a href="#one" class="button scrolly">Learn more</a></li>
-							</ul>
+							<h2>About This Game</h2>
+							<p>Me and my partner were tasked with recreating the NES classic "The Legend of Zelda" in Unity. I worked both in the Unity editor and inside many C# scripts for game objects...</p>
 						</div>
-					</section>
+					</div>
+				</section>
+			</section>
+		</div>
 
-				<!-- One -->
-					<section id="one" class="wrapper style2 spotlights">
-						<section>
-							<a href="#" class="image"><img src="images/pic01.png" alt="Zelda Recreation" data-position="center center" /></a>
-							<div class="content">
-								<div class="inner">
-									<h2>About This Game</h2>
-									<p>Me and my partner were tasked with recreating the NES classic "The Legend of Zelda" in Unity. I worked both in the Unity editor and inside many C# scripts for game objects. I created some of the enemies (gels, wallmasters, spike traps), as well as many of Link's weapons (bow, boomerang, sword, sword beam). I also added sounds and sprites for better game authenticity, and did a lot of numbers tweaking to Link's scripts and enemy movement to get that classic NES feel.</p>
-									<ul class="actions">
-									</ul>
-								</div>
-							</div>
-						</section>
-					</section>
+		<footer id="footer" class="wrapper style1-alt">
+			<div class="inner">
+				<ul class="menu">
+					<li>&copy; Alexander White. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+				</ul>
 			</div>
-
-		<!-- Footer -->
-			<footer id="footer" class="wrapper style1-alt">
-				<div class="inner">
-					<ul class="menu">
-						<li>&copy; Alexander White. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-					</ul>
-				</div>
-			</footer>
+		</footer>
 
 		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/jquery.scrollex.min.js"></script>
+		<script src="assets/js/jquery.scrolly.min.js"></script>
+		<script src="assets/js/browser.min.js"></script>
+		<script src="assets/js/breakpoints.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<script src="assets/js/main.js"></script>
 
+		<!-- CUSTOM FIX: Forces DPI Scaling to 1 for the game inside the iframe -->
+		<script>
+			window.onload = function() {
+				var iframe = document.getElementById('game-iframe');
+				if (iframe) {
+					// This reach-in script helps tell Unity to ignore browser zooming
+					iframe.contentWindow.devicePixelRatio = 1;
+				}
+			};
+		</script>
 	</body>
 </html>
