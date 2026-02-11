@@ -12,31 +12,28 @@
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 		<style>
-			/* Fixed dimensions for the game embed */
-			.game-frame-container {
-				width: 1024px;
-				height: 960px;
-				margin: 3em auto;
+			/* Fluid Aspect-Ratio Container */
+			.game-wrapper {
+				position: relative;
+				width: 100%;
+				max-width: 1024px; /* Limits size on large monitors */
+				margin: 2em auto;
+				/* Ratio: (960 / 1024) * 100 = 93.75% */
+				padding-bottom: 93.75%; 
+				height: 0;
+				overflow: hidden;
 				background: #000;
 				box-shadow: 0 0 50px rgba(0,0,0,0.5);
 				border-radius: 4px;
-				overflow: hidden;
 			}
 
-			.game-frame-container iframe {
-				width: 1024px;
-				height: 960px;
+			.game-wrapper iframe {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
 				border: none;
-			}
-
-			/* Laptop Scaling: If the screen is smaller than 1100px, 
-			   scale the entire game down so it doesn't clip. */
-			@media screen and (max-width: 1100px) {
-				.game-frame-container {
-					transform: scale(0.85);
-					transform-origin: top center;
-					margin-bottom: -100px; /* Adjusts spacing left by scaling */
-				}
 			}
 
 			/* Hides the Unity Fullscreen button specifically */
@@ -68,9 +65,9 @@
 							<h1>Alexander White</h1>
 							<p>A public portfolio of my game design work.</p>
 
-							<!-- Unity Game Embed -->
-							<div class="game-frame-container">
-								<iframe src="game.html"></iframe>
+							<!-- Updated Responsive Game Embed -->
+							<div class="game-wrapper">
+								<iframe src="game.html" scrolling="no"></iframe>
 							</div>
 
 							<ul class="actions">
@@ -82,20 +79,17 @@
 				<!-- One -->
 					<section id="one" class="wrapper style2 spotlights">
 						<section>
-							<a href="#" class="image"><img src="images/pic01.png" alt="" data-position="center center" /></a>
+							<a href="#" class="image"><img src="images/pic01.png" alt="Zelda Recreation" data-position="center center" /></a>
 							<div class="content">
 								<div class="inner">
 									<h2>About This Game</h2>
-									<p>Me and my partner were tasked with recreating the NES classic "The Legend of Zelda" in Unity. I worked both in the Unity editor and inside many C# scripts for game objects. I created some of the enemies, (gels, wallmasters, spike traps) as well as many of Link's weapons (bow, boomerang, sword, sword beam). I also added sounds and sprites for better game authenticity, and did a lot of numbers tweaking to Link's scripts and enemy movement to get that classic NES feel.</p>
-									<p>(Note: Those on laptops may need to go fullscreen, then back out of fullscreen, for the window to resize properly.)</p>
+									<p>Me and my partner were tasked with recreating the NES classic "The Legend of Zelda" in Unity. I worked both in the Unity editor and inside many C# scripts for game objects. I created some of the enemies (gels, wallmasters, spike traps), as well as many of Link's weapons (bow, boomerang, sword, sword beam). I also added sounds and sprites for better game authenticity, and did a lot of numbers tweaking to Link's scripts and enemy movement to get that classic NES feel.</p>
 									<ul class="actions">
 									</ul>
 								</div>
 							</div>
 						</section>
 					</section>
-
-				<!-- Two & Three kept original to save space -->
 			</div>
 
 		<!-- Footer -->
