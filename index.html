@@ -41,23 +41,26 @@
 			<div class="inner">
 				<nav>
 					<ul>
-						<li><a href="#intro">Welcome</a></li>
-						<li><a href="#one">About This Game</a></li>
+						<li><a href="#intro">Zelda Recreation</a></li>
+						<li><a href="#one">About Zelda Recreation</a></li>
+						<li><a href="#bottleboy">Bottle Boy</a></li>
+						<li><a href="#two">About Bottle Boy</a></li>
 					</ul>
 				</nav>
 			</div>
 		</section>
 
 		<div id="wrapper">
-			<!-- Intro -->
+
+			<!-- FIRST GAME -->
 			<section id="intro" class="wrapper style1 fullscreen fade-up">
 				<div class="inner">
 					<h1>Alexander White</h1>
 					<p>A public portfolio of my game design work.</p>
 
-					<!-- This is the dummy button script expects to find -->
 					<div id="unity-fullscreen-button"></div>
 
+					<h2>Zelda Recreation</h2>
 					<div class="game-wrapper">
 						<iframe id="game-iframe" src="game.html" scrolling="no"></iframe>
 					</div>
@@ -68,24 +71,68 @@
 				</div>
 			</section>
 
-			<!-- About Section -->
+			<!-- Project 1 -->
 			<section id="one" class="wrapper style2 spotlights">
 				<section>
-					<a href="#" class="image"><img src="images/pic01.png" alt="Zelda Recreation" data-position="center center" /></a>
+					<a href="#" class="image">
+						<img src="images/pic01.png" alt="Zelda Recreation" data-position="center center" />
+					</a>
 					<div class="content">
 						<div class="inner">
 							<h2>About This Game</h2>
-							<p>Me and my partner were tasked with recreating the NES classic "The Legend of Zelda" in Unity. I worked both in the Unity editor and inside many C# scripts for game objects...</p>
+							<p>
+								Me and my partner were tasked with recreating the NES classic 
+								"The Legend of Zelda" in Unity. I worked both in the Unity editor 
+								and inside many C# scripts for game objects...
+							</p>
 						</div>
 					</div>
 				</section>
 			</section>
+
+			<!-- Project 2 -->
+			<section id="bottleboy" class="wrapper style1 fullscreen fade-up">
+				<div class="inner">
+					<h2>Bottle Boy</h2>
+					<p>An original game by me built in Unity.</p>
+
+					<div class="game-wrapper">
+						<iframe id="bottleboy-iframe" src="BottleBoyWEB/bottleboy.html" scrolling="no"></iframe>
+					</div>
+
+					<ul class="actions">
+						<li><a href="#two" class="button scrolly">Learn more</a></li>
+					</ul>
+				</div>
+			</section>
+
+			<!-- ABOUT BOTTLE BOY -->
+			<section id="two" class="wrapper style2 spotlights">
+				<section>
+					<a href="#" class="image">
+						<img src="images/pic02.png" alt="Bottle Boy" data-position="center center" />
+					</a>
+					<div class="content">
+						<div class="inner">
+							<h2>About Bottle Boy</h2>
+							<p>
+								In this game you play as Bottle Boy! You must explore around 
+								, mastering the art of the water bottle flip as you traverse
+								dangerous obstacles. Don't run out of water or it's game over! 
+								I built everything for this game myself in Unity.
+							</p>
+						</div>
+					</div>
+				</section>
+			</section>
+
 		</div>
 
 		<footer id="footer" class="wrapper style1-alt">
 			<div class="inner">
 				<ul class="menu">
-					<li>&copy; Alexander White. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+					<li>&copy; Alexander White. All rights reserved.</li>
+					<li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
 				</ul>
 			</div>
 		</footer>
@@ -99,15 +146,21 @@
 		<script src="assets/js/util.js"></script>
 		<script src="assets/js/main.js"></script>
 
-		<!-- CUSTOM FIX: Forces DPI Scaling to 1 for the game inside the iframe -->
+		<!-- CUSTOM FIX: Forces DPI Scaling to 1 for the games inside the iframes -->
 		<script>
 			window.onload = function() {
-				var iframe = document.getElementById('game-iframe');
-				if (iframe) {
-					// This reach-in script helps tell Unity to ignore browser zooming
-					iframe.contentWindow.devicePixelRatio = 1;
+				var zeldaIframe = document.getElementById('game-iframe');
+				var bottleboyIframe = document.getElementById('bottleboy-iframe');
+
+				if (zeldaIframe && zeldaIframe.contentWindow) {
+					zeldaIframe.contentWindow.devicePixelRatio = 1;
+				}
+
+				if (bottleboyIframe && bottleboyIframe.contentWindow) {
+					bottleboyIframe.contentWindow.devicePixelRatio = 1;
 				}
 			};
 		</script>
+
 	</body>
 </html>
