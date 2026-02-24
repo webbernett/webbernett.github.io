@@ -8,7 +8,7 @@
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 		<style>
 			/* Fluid Container that stays centered and scales correctly */
-			.game-wrapper-large {
+			.game-wrapper {
 				position: relative;
 				width: 100%;
 				max-width: 1024px; 
@@ -21,41 +21,11 @@
 				box-shadow: 0 0 50px rgba(0,0,0,0.5);
 			}
 
-			/* Bottle Boy is about 2/3 height of Zelda */
-			.game-wrapper-small {
-				position: relative;
-				width: 100%;
-				max-width: 1024px; 
-				margin: 2em auto;
-				padding-bottom: 62%; /* ~2/3 of 93.75% */
-				height: 0;
-				overflow: hidden;
-				background: #000;
-				border-radius: 4px;
-				box-shadow: 0 0 50px rgba(0,0,0,0.5);
-			}
-
-			.game-wrapper-large iframe,
-			.game-wrapper-small iframe {
+			.game-wrapper iframe {
 				position: absolute;
 				top: 0; left: 0;
 				width: 100%; height: 100%;
 				border: none;
-			}
-
-			.volume-btn {
-				display: inline-block;
-				margin-top: 1em;
-				padding: 0.6em 1.2em;
-				background: #444;
-				color: #fff;
-				border: none;
-				border-radius: 4px;
-				cursor: pointer;
-			}
-
-			.volume-btn:hover {
-				background: #666;
 			}
 
 			/* Hidden dummy element to resolve the JS error */
@@ -91,13 +61,9 @@
 					<div id="unity-fullscreen-button"></div>
 
 					<h2>Zelda Recreation</h2>
-					<div class="game-wrapper-large">
+					<div class="game-wrapper">
 						<iframe id="game-iframe" src="game.html" scrolling="no"></iframe>
 					</div>
-
-					<button class="volume-btn" onclick="toggleAudio('zelda', this)">
-						Unmute
-					</button>
 
 					<ul class="actions">
 						<li><a href="#one" class="button scrolly">Learn more</a></li>
@@ -125,18 +91,14 @@
 			</section>
 
 			<!-- Project 2 -->
-			<section id="bottleboy" class="wrapper style1 fade-up">
+			<section id="bottleboy" class="wrapper style1 fullscreen fade-up">
 				<div class="inner">
 					<h2>Bottle Boy</h2>
 					<p>An original game by me built in Unity.</p>
 
-					<div class="game-wrapper-small">
+					<div class="game-wrapper">
 						<iframe id="bottleboy-iframe" src="BottleBoyWEB/bottleboy.html" scrolling="no"></iframe>
 					</div>
-
-					<button class="volume-btn" onclick="toggleAudio('bottleboy', this)">
-						Unmute
-					</button>
 
 					<ul class="actions">
 						<li><a href="#two" class="button scrolly">Learn more</a></li>
@@ -186,39 +148,16 @@
 
 		<!-- CUSTOM FIX: Forces DPI Scaling to 1 for the games inside the iframes -->
 		<script>
-			let audioState = {
-				zelda: false,
-				bottleboy: false
-			};
-
-			function toggleAudio(game, button) {
-				const iframeId = (game === 'zelda') ? 'game-iframe' : 'bottleboy-iframe';
-				const iframe = document.getElementById(iframeId);
-
-				audioState[game] = !audioState[game];
-
-				button.innerText = audioState[game] ? "Mute" : "Unmute";
-
-				if (iframe && iframe.contentWindow) {
-					iframe.contentWindow.postMessage({
-						type: "TOGGLE_AUDIO",
-						muted: !audioState[game]
-					}, "*");
-				}
-			}
-
 			window.onload = function() {
 				var zeldaIframe = document.getElementById('game-iframe');
 				var bottleboyIframe = document.getElementById('bottleboy-iframe');
 
 				if (zeldaIframe && zeldaIframe.contentWindow) {
 					zeldaIframe.contentWindow.devicePixelRatio = 1;
-					zeldaIframe.contentWindow.postMessage({ type: "TOGGLE_AUDIO", muted: true }, "*");
 				}
 
 				if (bottleboyIframe && bottleboyIframe.contentWindow) {
 					bottleboyIframe.contentWindow.devicePixelRatio = 1;
-					bottleboyIframe.contentWindow.postMessage({ type: "TOGGLE_AUDIO", muted: true }, "*");
 				}
 			};
 		</script>
