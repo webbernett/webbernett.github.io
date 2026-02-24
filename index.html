@@ -6,15 +6,14 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-
 		<style>
-			/* Zelda Game Wrapper (Full Size) */
+			/* Fluid Container that stays centered and scales correctly */
 			.game-wrapper-large {
 				position: relative;
 				width: 100%;
-				max-width: 1024px;
+				max-width: 1024px; 
 				margin: 2em auto;
-				padding-bottom: 93.75%;
+				padding-bottom: 93.75%; /* (960 / 1024) ratio */
 				height: 0;
 				overflow: hidden;
 				background: #000;
@@ -22,13 +21,13 @@
 				box-shadow: 0 0 50px rgba(0,0,0,0.5);
 			}
 
-			/* Bottle Boy Wrapper (2/3 Height) */
+			/* Bottle Boy is about 2/3 height of Zelda */
 			.game-wrapper-small {
 				position: relative;
 				width: 100%;
-				max-width: 1024px;
+				max-width: 1024px; 
 				margin: 2em auto;
-				padding-bottom: 62%;
+				padding-bottom: 62%; /* ~2/3 of 93.75% */
 				height: 0;
 				overflow: hidden;
 				background: #000;
@@ -39,10 +38,8 @@
 			.game-wrapper-large iframe,
 			.game-wrapper-small iframe {
 				position: absolute;
-				top: 0;
-				left: 0;
-				width: 100%;
-				height: 100%;
+				top: 0; left: 0;
+				width: 100%; height: 100%;
 				border: none;
 			}
 
@@ -61,70 +58,147 @@
 				background: #666;
 			}
 
+			/* Hidden dummy element to resolve the JS error */
 			#unity-fullscreen-button {
 				display: none !important;
 				visibility: hidden !important;
 			}
 		</style>
 	</head>
-
 	<body class="is-preload">
+
+		<section id="sidebar">
+			<div class="inner">
+				<nav>
+					<ul>
+						<li><a href="#intro">Zelda Recreation</a></li>
+						<li><a href="#one">About Zelda Recreation</a></li>
+						<li><a href="#bottleboy">Bottle Boy</a></li>
+						<li><a href="#two">About Bottle Boy</a></li>
+					</ul>
+				</nav>
+			</div>
+		</section>
 
 		<div id="wrapper">
 
-			<!-- ZELDA -->
-			<section class="wrapper style1 fullscreen fade-up">
+			<!-- FIRST GAME -->
+			<section id="intro" class="wrapper style1 fullscreen fade-up">
 				<div class="inner">
-					<h2>Zelda Recreation</h2>
+					<h1>Alexander White</h1>
+					<p>A public portfolio of my game design work.</p>
 
 					<div id="unity-fullscreen-button"></div>
 
+					<h2>Zelda Recreation</h2>
 					<div class="game-wrapper-large">
-						<iframe id="zelda-iframe" src="zelda/game.html" scrolling="no"></iframe>
+						<iframe id="game-iframe" src="game.html" scrolling="no"></iframe>
 					</div>
 
-					<button class="volume-btn" onclick="toggleAudio('zelda')">
+					<button class="volume-btn" onclick="toggleAudio('zelda', this)">
 						Unmute
 					</button>
+
+					<ul class="actions">
+						<li><a href="#one" class="button scrolly">Learn more</a></li>
+					</ul>
 				</div>
 			</section>
 
-			<!-- BOTTLE BOY -->
-			<section class="wrapper style1 fade-up">
+			<!-- Project 1 -->
+			<section id="one" class="wrapper style2 spotlights">
+				<section>
+					<a href="#" class="image">
+						<img src="images/pic01.png" alt="Zelda Recreation" data-position="center center" />
+					</a>
+					<div class="content">
+						<div class="inner">
+							<h2>About This Game</h2>
+							<p>
+								Me and my partner were tasked with recreating the NES classic 
+								"The Legend of Zelda" in Unity. I worked both in the Unity editor 
+								and inside many C# scripts for game objects.
+							</p>
+						</div>
+					</div>
+				</section>
+			</section>
+
+			<!-- Project 2 -->
+			<section id="bottleboy" class="wrapper style1 fade-up">
 				<div class="inner">
 					<h2>Bottle Boy</h2>
+					<p>An original game by me built in Unity.</p>
 
 					<div class="game-wrapper-small">
-						<iframe id="bottleboy-iframe" src="bottleboy/bottleboy.html" scrolling="no"></iframe>
+						<iframe id="bottleboy-iframe" src="BottleBoyWEB/bottleboy.html" scrolling="no"></iframe>
 					</div>
 
-					<button class="volume-btn" onclick="toggleAudio('bottleboy')">
+					<button class="volume-btn" onclick="toggleAudio('bottleboy', this)">
 						Unmute
 					</button>
+
+					<ul class="actions">
+						<li><a href="#two" class="button scrolly">Learn more</a></li>
+					</ul>
 				</div>
+			</section>
+
+			<!-- ABOUT BOTTLE BOY -->
+			<section id="two" class="wrapper style2 spotlights">
+				<section>
+					<a href="#" class="image">
+						<img src="images/pic02.png" alt="Bottle Boy" data-position="center center" />
+					</a>
+					<div class="content">
+						<div class="inner">
+							<h2>About This Game</h2>
+							<p>
+								In this game you play as Bottle Boy! You must explore around 
+								, mastering the art of the water bottle flip as you traverse
+								dangerous obstacles. Don't run out of water or it's game over! 
+								I built everything for this game myself in Unity.
+							</p>
+						</div>
+					</div>
+				</section>
 			</section>
 
 		</div>
 
+		<footer id="footer" class="wrapper style1-alt">
+			<div class="inner">
+				<ul class="menu">
+					<li>&copy; Alexander White. All rights reserved.</li>
+					<li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+				</ul>
+			</div>
+		</footer>
+
+		<!-- Scripts -->
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/jquery.scrollex.min.js"></script>
+		<script src="assets/js/jquery.scrolly.min.js"></script>
+		<script src="assets/js/browser.min.js"></script>
+		<script src="assets/js/breakpoints.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<script src="assets/js/main.js"></script>
+
+		<!-- CUSTOM FIX: Forces DPI Scaling to 1 for the games inside the iframes -->
 		<script>
 			let audioState = {
 				zelda: false,
 				bottleboy: false
 			};
 
-			function toggleAudio(game) {
-				const iframe = document.getElementById(game + "-iframe");
-				const button = event.target;
+			function toggleAudio(game, button) {
+				const iframeId = (game === 'zelda') ? 'game-iframe' : 'bottleboy-iframe';
+				const iframe = document.getElementById(iframeId);
 
 				audioState[game] = !audioState[game];
 
-				if (audioState[game]) {
-					button.innerText = "Mute";
-				} else {
-					button.innerText = "Unmute";
-				}
+				button.innerText = audioState[game] ? "Mute" : "Unmute";
 
-				// Send message to Unity (requires Unity-side handler)
 				if (iframe && iframe.contentWindow) {
 					iframe.contentWindow.postMessage({
 						type: "TOGGLE_AUDIO",
@@ -133,17 +207,18 @@
 				}
 			}
 
-			// Default both games to muted on load
 			window.onload = function() {
-				const zeldaFrame = document.getElementById('zelda-iframe');
-				const bottleFrame = document.getElementById('bottleboy-iframe');
+				var zeldaIframe = document.getElementById('game-iframe');
+				var bottleboyIframe = document.getElementById('bottleboy-iframe');
 
-				if (zeldaFrame && zeldaFrame.contentWindow) {
-					zeldaFrame.contentWindow.postMessage({ type: "TOGGLE_AUDIO", muted: true }, "*");
+				if (zeldaIframe && zeldaIframe.contentWindow) {
+					zeldaIframe.contentWindow.devicePixelRatio = 1;
+					zeldaIframe.contentWindow.postMessage({ type: "TOGGLE_AUDIO", muted: true }, "*");
 				}
 
-				if (bottleFrame && bottleFrame.contentWindow) {
-					bottleFrame.contentWindow.postMessage({ type: "TOGGLE_AUDIO", muted: true }, "*");
+				if (bottleboyIframe && bottleboyIframe.contentWindow) {
+					bottleboyIframe.contentWindow.devicePixelRatio = 1;
+					bottleboyIframe.contentWindow.postMessage({ type: "TOGGLE_AUDIO", muted: true }, "*");
 				}
 			};
 		</script>
