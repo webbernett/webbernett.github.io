@@ -7,13 +7,12 @@
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 		<style>
-			/* Fluid Container that stays centered and scales correctly */
 			.game-wrapper {
 				position: relative;
 				width: 100%;
 				max-width: 1024px; 
 				margin: 2em auto;
-				padding-bottom: 93.75%; /* (960 / 1024) ratio */
+				padding-bottom: 93.75%;
 				height: 0;
 				overflow: hidden;
 				background: #000;
@@ -28,7 +27,6 @@
 				border: none;
 			}
 
-			/* Hidden dummy element to resolve the JS error */
 			#unity-fullscreen-button {
 				display: none !important;
 				visibility: hidden !important;
@@ -45,6 +43,8 @@
 						<li><a href="#one">About Zelda Recreation</a></li>
 						<li><a href="#bottleboy">Bottle Boy</a></li>
 						<li><a href="#two">About Bottle Boy</a></li>
+						<li><a href="#thirdgame">Third Game</a></li>
+						<li><a href="#three">About Third Game</a></li>
 					</ul>
 				</nav>
 			</div>
@@ -126,6 +126,40 @@
 				</section>
 			</section>
 
+			<!-- Project 3 -->
+			<section id="thirdgame" class="wrapper style1 fullscreen fade-up">
+				<div class="inner">
+					<h2>Third Game</h2>
+					<p>An additional Unity project added to my portfolio.</p>
+
+					<div class="game-wrapper">
+						<iframe id="thirdgame-iframe" src="/P3WEB/game3.html" scrolling="no"></iframe>
+					</div>
+
+					<ul class="actions">
+						<li><a href="#three" class="button scrolly">Learn more</a></li>
+					</ul>
+				</div>
+			</section>
+
+			<!-- ABOUT THIRD GAME -->
+			<section id="three" class="wrapper style2 spotlights">
+				<section>
+					<a href="#" class="image">
+						<img src="images/pic08.jpg" alt="Third Game" data-position="center center" />
+					</a>
+					<div class="content">
+						<div class="inner">
+							<h2>About This Game</h2>
+							<p>
+								This project expands my Unity development experience, showcasing
+								additional mechanics, design decisions, and technical skills.
+							</p>
+						</div>
+					</div>
+				</section>
+			</section>
+
 		</div>
 
 		<footer id="footer" class="wrapper style1-alt">
@@ -146,24 +180,16 @@
 		<script src="assets/js/util.js"></script>
 		<script src="assets/js/main.js"></script>
 
-		<!-- CUSTOM FIX: Forces DPI Scaling to 1 for the games inside the iframes -->
+		<!-- DPI Scaling Fix for all iframes -->
 		<script>
 			window.onload = function() {
-				var zeldaIframe = document.getElementById('game-iframe');
-				var bottleboyIframe = document.getElementById('bottleboy-iframe');
-
-				if (zeldaIframe && zeldaIframe.contentWindow) {
-					zeldaIframe.contentWindow.devicePixelRatio = 1;
-				}
-
-				if (bottleboyIframe && bottleboyIframe.contentWindow) {
-					bottleboyIframe.contentWindow.devicePixelRatio = 1;
-				}
+				document.querySelectorAll("iframe").forEach(function(iframe) {
+					if (iframe.contentWindow) {
+						iframe.contentWindow.devicePixelRatio = 1;
+					}
+				});
 			};
 		</script>
 
 	</body>
 </html>
-
-
-
